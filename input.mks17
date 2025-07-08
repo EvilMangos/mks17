@@ -1,0 +1,9 @@
+printmk 12
+save sum add 23 43 54
+save difference subtract 81 27 4
+save multiplication multiply 4 3
+save division divide 45 5 3
+printmk sum
+printmk difference
+printmk multiplication
+printmk division
