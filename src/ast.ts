@@ -35,6 +35,10 @@ export class VariableNode extends ASTNode {
 	setValue(value: number): void {
 		this.value = value;
 	}
+
+	removeValue(): void {
+		this.value = null;
+	}
 }
 
 export class CommandNode extends ASTNode {
