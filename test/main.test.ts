@@ -1,9 +1,9 @@
-import { main } from "../../src/main";
-import { variables } from "../../src/variables";
+import { main } from "../src/main";
+import { variables } from "../src/variables";
 
 const mockLines = ["printmk 12", "save sum add 23 43 54"];
 
-jest.mock("../../src/fileReader.ts", () => ({
+jest.mock("../src/fileReader.ts", () => ({
 	readFile: jest.fn(() => mockLines),
 }));
 

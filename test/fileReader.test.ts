@@ -1,4 +1,4 @@
-import { readFile } from "../../src/fileReader";
+import { readFile } from "../src/fileReader";
 
 const mockContent = "printmk 12\nsave sum add 23 43 54\n";
 

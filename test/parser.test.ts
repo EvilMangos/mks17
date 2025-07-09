@@ -1,6 +1,6 @@
-import { CommandNode, NumberNode, VariableNode } from "../../src/ast";
-import { tokenize, parse } from "../../src/parser";
-import { Token, TokenType } from "../../src/token";
+import { CommandNode, NumberNode, VariableNode } from "../src/ast";
+import { tokenize, parse } from "../src/parser";
+import { Token, TokenType } from "../src/token";
 
 describe("parser", () => {
 	const tokens = [

@@ -1,5 +1,5 @@
-import { NumberNode, VariableNode, CommandNode, ASTNode } from "../../src/ast";
-import { variables } from "../../src/variables";
+import { NumberNode, VariableNode, CommandNode, ASTNode } from "../src/ast";
+import { variables } from "../src/variables";
 
 describe("ASTNode and its subclasses", () => {
 	test("NumberNode evaluates correctly", () => {

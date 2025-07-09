@@ -1,6 +1,6 @@
-import { executeCommand } from "../../src/commandExecutor";
-import { ASTNode, CommandNode, NumberNode, VariableNode } from "../../src/ast";
-import { variables } from "../../src/variables";
+import { executeCommand } from "../src/commandExecutor";
+import { ASTNode, CommandNode, NumberNode, VariableNode } from "../src/ast";
+import { variables } from "../src/variables";
 
 describe("commandExecutor", () => {
 	it("executes printmk command correctly", () => {
