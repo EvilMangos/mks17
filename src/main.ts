@@ -1,14 +1,19 @@
 import { readFile } from "./fileReader";
 import { tokenize, parse } from "./parser";
 import "./variables";
+import {ASTNode} from "./ast";
+
+export function executeCommands(commands: ASTNode[]): void {
+	commands.forEach((command) => {
+		command.evaluate();
+	});
+}
 
 export async function main(filePath: string): Promise<void> {
 	const lines = await readFile(filePath);
 	const tokens = tokenize(lines);
 	const commands = parse(tokens);
-	commands.forEach((command) => {
-		command.evaluate();
-	});
+	executeCommands(commands);
 }
 
 if (require.main === module) {

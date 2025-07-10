@@ -26,7 +26,7 @@ export function tokenize(lines: string[]): Token[][] {
 	return tokens;
 }
 
-export function parse(tokens: Token[][]): any[] {
+export function parse(tokens: Token[][]): ASTNode[] {
 	const astNodes: ASTNode[] = [];
 
 	for (const tokensLine of tokens) {
