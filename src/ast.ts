@@ -1,4 +1,5 @@
 import { executeCommand } from "./commandExecutor";
+import {variables} from "./variables";
 
 export abstract class ASTNode {
 	name: string = "";
@@ -21,23 +22,50 @@ export class NumberNode extends ASTNode {
 export class VariableNode extends ASTNode {
 	name: string;
 	value: number | null;
+	totalNumberOfInvokes: number;
+	currentNumberOfInvokes: number;
 
 	constructor(name: string, value: number | null = null) {
 		super();
 		this.name = name;
 		this.value = value;
+		this.totalNumberOfInvokes = 1;
+		this.currentNumberOfInvokes = 0;
 	}
 
 	evaluate(): number {
-		return this.value || 0;
+		this.incrementCurrentNumberOfInvokes();
+		const result = this.value ?? 0;
+		this.tryGarbageCollect();
+		return result;
 	}
 
 	setValue(value: number): void {
+		this.incrementCurrentNumberOfInvokes();
 		this.value = value;
+		this.tryGarbageCollect();
 	}
 
 	removeValue(): void {
+		this.incrementCurrentNumberOfInvokes();
 		this.value = null;
+		this.tryGarbageCollect();
+	}
+
+	incrementTotalNumberOfInvokes(): void {
+		this.totalNumberOfInvokes += 1;
+	}
+
+	incrementCurrentNumberOfInvokes(): void {
+		this.currentNumberOfInvokes += 1;
+	}
+
+	private tryGarbageCollect(): void {
+		if (
+			this.currentNumberOfInvokes >= this.totalNumberOfInvokes
+		) {
+			delete variables[this.name];
+		}
 	}
 }
 

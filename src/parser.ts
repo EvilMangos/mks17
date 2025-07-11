@@ -41,6 +41,8 @@ export function parse(tokens: Token[][]): ASTNode[] {
 			} else if (token.type === TokenType.VARIABLE) {
 				if (!variables[token.value]) {
 					variables[token.value] = new VariableNode(token.value);
+				} else {
+					variables[token.value].incrementTotalNumberOfInvokes();
 				}
 				commands[commands.length - 1].parameters.push(variables[token.value]);
 			}
