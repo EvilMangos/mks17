@@ -1,7 +1,7 @@
 import { readFile } from "./fileReader";
 import { tokenize, parse } from "./parser";
 import "./variables";
-import {ASTNode} from "./ast";
+import { ASTNode } from "./ast";
 
 export function executeCommands(commands: ASTNode[]): void {
 	commands.forEach((command) => {

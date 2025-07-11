@@ -1,8 +1,9 @@
 import { executeCommand } from "./commandExecutor";
-import {variables} from "./variables";
+import { variables } from "./variables";
 
 export abstract class ASTNode {
 	name: string = "";
+
 	abstract evaluate(): number;
 }
 
@@ -61,9 +62,7 @@ export class VariableNode extends ASTNode {
 	}
 
 	private tryGarbageCollect(): void {
-		if (
-			this.currentNumberOfInvokes >= this.totalNumberOfInvokes
-		) {
+		if (this.currentNumberOfInvokes >= this.totalNumberOfInvokes) {
 			delete variables[this.name];
 		}
 	}

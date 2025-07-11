@@ -1,15 +1,15 @@
 export enum TokenType {
-    NUMBER,
-    COMMAND,
-    VARIABLE,
+	NUMBER,
+	COMMAND,
+	VARIABLE,
 }
 
 export class Token {
-    type: TokenType;
-    value: string;
+	type: TokenType;
+	value: string;
 
-    constructor(type: TokenType, value: string) {
-        this.type = type;
-        this.value = value;
-    }
+	constructor(type: TokenType, value: string) {
+		this.type = type;
+		this.value = value;
+	}
 }

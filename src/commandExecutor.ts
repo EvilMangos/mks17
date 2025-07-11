@@ -9,7 +9,7 @@ export const commands = [
 	"multiply",
 	"pow",
 	"save",
-	"destroy"
+	"destroy",
 ];
 
 export function executeCommand(command: CommandNode): number | null {
@@ -30,9 +30,9 @@ export function executeCommand(command: CommandNode): number | null {
 		case "save":
 			save(command.parameters);
 			return null;
-			case "destroy":
-				destroy(command.parameters);
-				return null;
+		case "destroy":
+			destroy(command.parameters);
+			return null;
 		default:
 			throw new Error(`Unknown command: ${command.name}`);
 	}
@@ -82,7 +82,7 @@ function save(parameters: ASTNode[]): void {
 }
 
 function destroy(parameters: ASTNode[]): void {
-	parameters.forEach(variable => {
+	parameters.forEach((variable) => {
 		variables[variable.name].removeValue();
-	})
+	});
 }

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "format": "prettier --write src/**/*.ts test/**/*.ts",
     "start": "ts-node src/main.ts input.mks17"
   },
   "keywords": [],
@@ -11,6 +12,7 @@
   "description": "",
   "dependencies": {
     "@types/node": "^22.8.1",
+    "prettier": "^3.6.2",
     "ts-node": "^10.9.2"
   },
   "devDependencies": {
